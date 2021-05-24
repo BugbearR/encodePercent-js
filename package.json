@@ -1,0 +1,25 @@
+{
+  "name": "@bugbearr/encodepercent",
+  "description": "Encode parcent-encoding",
+  "version": "0.0.1",
+  "author": "BugbearR <bugbearr@gmail.com>",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "index.js"
+  ],
+  "license": "CC0-1.0",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/BugbearR/encodePercent-js.git",
+  "scripts": {
+    "test": "jest"
+  },
+  "types": "index.d.js"
+}
