@@ -11,12 +11,15 @@
 // The userinfo percent-encode set is the path percent-encode set and U+002F (/), U+003A (:), U+003B (;), U+003D (=), U+0040 (@), U+005B ([) to U+005E (^), inclusive, and U+007C (|).
 // The component percent-encode set is the userinfo percent-encode set and U+0024 ($) to U+0026 (&), inclusive, U+002B (+), and U+002C (,).
 
+// ASCII for reference
+//  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 var FRAGMENT_SET = " \"<>`";
 var QUERY_SET = " \"#<>";
 var SPECIAL_QUERY_SET = " \"#<>'";
 var PATH_SET = " \"#<>?`{}";
 var USERINFO_SET = " \"#<>?`{}/:;=@[\\]^|";
-var COMPONENT_SET = " \"#<>?`{}/:;=@[\\]^|$%&+,";
+var COMPONENT_SET = " \"#<>?`{}/:;=@[\\]^|$&+,";
+var RFC5987_VALUE_CHARS_SET = " \"'()*,/:;<=>?@[\\]{}";
 
 const RE_RANGE_ESCAPE_MAP = {
     "\x00": "\\x00",
@@ -94,7 +97,7 @@ function encodePercent(s, encodingChars) {
     }
     var re = reCache[encodingChars];
     if (!re) {
-        re = new RegExp("[\uD800-\uDBFF][\uDC00-\uDFFF]|[\x00-\x1F" + escapeReRange(encodingChars) + "\u007F-\uD7FF\uE000-\uFFFF]", "g");
+        re = new RegExp("[\uD800-\uDBFF][\uDC00-\uDFFF]|[\x00-\x1F%" + escapeReRange(encodingChars) + "\u007F-\uD7FF\uE000-\uFFFF]", "g");
         reCache[encodingChars] = re;
     }
     return s.replace(re, encodePercentChar);
@@ -107,5 +110,7 @@ module.exports = {
     "PATH_SET": PATH_SET,
     "USERINFO_SET": USERINFO_SET,
     "COMPONENT_SET": COMPONENT_SET,
+    "RFC5987_VALUE_CHARS_SET": RFC5987_VALUE_CHARS_SET,
+    "RFC8187_VALUE_CHARS_SET": RFC5987_VALUE_CHARS_SET,
     "encodePercent": encodePercent
 };

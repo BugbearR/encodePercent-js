@@ -52,27 +52,35 @@ test("input: \"\\uFFFF\"", () => {
 });
 
 test("input: ASCII, FRAGMENT_SET", () => {
-    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.FRAGMENT_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22#$%&'()*+,-./0123456789:;%3C=%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_%60abcdefghijklmnopqrstuvwxyz{|}~%7F");
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.FRAGMENT_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22#$%25&'()*+,-./0123456789:;%3C=%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_%60abcdefghijklmnopqrstuvwxyz{|}~%7F");
 });
 
 test("input: ASCII, QUERY_SET", () => {
-    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.QUERY_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%&'()*+,-./0123456789:;%3C=%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~%7F");
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.QUERY_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%25&'()*+,-./0123456789:;%3C=%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~%7F");
 });
 
 test("input: ASCII, SPECIAL_QUERY_SET", () => {
-    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.SPECIAL_QUERY_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%&%27()*+,-./0123456789:;%3C=%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~%7F");
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.SPECIAL_QUERY_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%25&%27()*+,-./0123456789:;%3C=%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~%7F");
 });
 
 test("input: ASCII, PATH_SET", () => {
-    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.PATH_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%&'()*+,-./0123456789:;%3C=%3E%3F@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_%60abcdefghijklmnopqrstuvwxyz%7B|%7D~%7F");
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.PATH_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%25&'()*+,-./0123456789:;%3C=%3E%3F@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_%60abcdefghijklmnopqrstuvwxyz%7B|%7D~%7F");
 });
 
 test("input: ASCII, USERINFO_SET", () => {
-    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.USERINFO_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%&'()*+,-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%7F");
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.USERINFO_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23$%25&'()*+,-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%7F");
 });
 
 test("input: ASCII, COMPONENT_SET", () => {
     expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.COMPONENT_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22%23%24%25%26'()*%2B%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%7F");
+});
+
+test("input: ASCII, RFC5987_VALUE_CHARS_SET", () => {
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.RFC5987_VALUE_CHARS_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22#$%25&%27%28%29%2A+%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D^_`abcdefghijklmnopqrstuvwxyz%7B|%7D~%7F");
+});
+
+test("input: ASCII, RFC8187_VALUE_CHARS_SET", () => {
+    expect(EncodePercent.encodePercent(ASCII_SET, EncodePercent.RFC8187_VALUE_CHARS_SET)).toBe("%00%01%02%03%04%05%06%07%08%09%0A%0B%0C%0D%0E%0F%10%11%12%13%14%15%16%17%18%19%1A%1B%1C%1D%1E%1F%20!%22#$%25&%27%28%29%2A+%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D^_`abcdefghijklmnopqrstuvwxyz%7B|%7D~%7F");
 });
 
 test("input: ASCII, default(COMPONENT_SET)", () => {

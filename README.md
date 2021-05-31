@@ -20,6 +20,8 @@ console.log(uriComponentStr);
 // var PATH_SET = " \"#<>?`{}";
 // var USERINFO_SET = " \"#<>?`{}/:;=@[\\]^|";
 // var COMPONENT_SET = " \"#<>?`{}/:;=@[\\]^|$%&+,";
+// var RFC5987_VALUE_CHARS_SET = " \"'()*,/:;<=>?@[\\]{}";
+// var RFC8187_VALUE_CHARS_SET = " \"'()*,/:;<=>?@[\\]{}";
 
 var uriComponentStr = EncodePercent.encodePercent(
     " !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~", EncodePercent.FRAGMENT_SET);
